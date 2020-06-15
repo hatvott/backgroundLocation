@@ -1,5 +1,4 @@
-Background 
-## :large_blue_diamond: Vcem Background Location
+ Vcem Background Location
 
 ### Step 1: Tải code
 
