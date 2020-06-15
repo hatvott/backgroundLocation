@@ -43,7 +43,7 @@ export class HelloWorldPage {
     this.enabled = true;
     this.events = [];
 
-    // Listen for deviceready to configure BackgroundGeolocation
+    // Listen for deviceready to configure BackgroundGeolocation (Khởi tạo đợi khi thiết bị sẵn sằng để cấu hình Background Location)
     this.platform.ready().then(this.onDeviceReady.bind(this));
   }
 
@@ -55,9 +55,9 @@ export class HelloWorldPage {
     this.configureBackgroundGeolocation();
  
   }
-
+// Thực hiện cấu hình
   async configureBackgroundGeolocation() {
-    // Compose #url: tracker.transistorsoft.com/locations/{username}
+    // Lấy thông tin thiết bị để gửi mã thiết bị lên hệ thống transistor
     let deviceInfo = await BackgroundGeolocation.getDeviceInfo();
     let name = 'Long'
     this.deviceName = deviceInfo.model +'-'+name;
@@ -72,9 +72,10 @@ export class HelloWorldPage {
       position: 'top'
 
     }).present();
+
     let org:string = 'test'
     await BackgroundGeolocation.destroyTransistorAuthorizationToken(ENV.TRACKER_HOST);
-    // Register device with tracker.transistorsoft.com to receive a JSON Web Token (JWT).
+    // Đăng ký thông tin thiết bị lên transitor
     let token:TransistorAuthorizationToken = await BackgroundGeolocation.findOrCreateTransistorAuthorizationToken(
       org,
       name,
@@ -99,14 +100,14 @@ export class HelloWorldPage {
       reset: false,
       debug: false,
       logLevel: BackgroundGeolocation.LOG_LEVEL_VERBOSE,
-      distanceFilter: 70,
-      desiredAccuracy: BackgroundGeolocation.DESIRED_ACCURACY_HIGH,
-      stopTimeout: 1,
-      stopOnTerminate: false,
-      startOnBoot: true,
-      heartbeatInterval: 60,
-      url: ENV.TRACKER_HOST + '/api/locations',
-      authorization: {  // <-- JWT authorization for tracker.transistorsoft.com
+      distanceFilter: 70,//Khoảng cách tối thiểu tính bằng met khi thiết bị di chuyển, mới log lại 1 bản ghi
+      desiredAccuracy: BackgroundGeolocation.DESIRED_ACCURACY_HIGH, //yêu cầu độ chính xác cao
+      stopTimeout: 1, //Số phút đợi trạng thái chuyển động không di chuyển trước khi xác định là thiết bị đứng yên
+      stopOnTerminate: false, //không dừng lại khi tắt app
+      startOnBoot: true,//khởi động lại cùng ứng dụng
+      heartbeatInterval: 60, //Tự động đẩy location về server sau 60s khi đang ở trạng thái đứng yên
+      url: ENV.TRACKER_HOST + '/api/locations', //api đẩy lên hệ thống
+      authorization: {  // <-- JWT authorization for tracker.transistorsoft.com //sau có thể xây dựng api cũng xác thực theo jwt này
         strategy: 'jwt',
         accessToken: token.accessToken,
         refreshToken: token.refreshToken,
@@ -121,15 +122,17 @@ export class HelloWorldPage {
       batchSync: true
     }, (state) => {
       console.log('- Configure success: ', state);
+      //sau khi thực hiện cấu hình thành công sẽ tự động kích hoạt giám sát
       BackgroundGeolocation.start();
       this.isMoving =true;
+      // chuyển trạng thái bắt đầu chuyển động
       BackgroundGeolocation.changePace(  this.isMoving);
 
       // Update UI state (toggle switch, changePace button)
-      this.zone.run(() => {
-        this.isMoving = state.isMoving;
-        this.enabled = state.enabled;
-      });
+      // this.zone.run(() => {
+      //   this.isMoving = state.isMoving;
+      //   this.enabled = state.enabled;
+      // });
     });
   }
   // Return to Home screen (app switcher)
@@ -154,7 +157,7 @@ export class HelloWorldPage {
       console.warn('- Location error: ', error);
     });
   }
-
+  //bắt sự kiện on heart beat
   onHeartbeat (event:HeartbeatEvent){
     BackgroundGeolocation.getCurrentPosition({
       samples: 1,
