@@ -64,7 +64,17 @@ CREATE TABLE [dbo].[tblAccountTracking](
 ) ON [PRIMARY]
 
 ```
-### 2: Mẫu dữ liệu Mobile đẩy lên
+### 2: Cách truyền thêm username, fullname, hay token vào trong request để xác định tọa độ của ai.
+Bổ sung vào trong param truyền lên, hoặc đưa vào header, hoặc đưa vào trong trường dữ liệu extra của tạo độ.
+```bash
+ params: {
+    "username": hatv
+  },
+  headers: {
+    "api-token":"secret-key"
+  }
+```
+### 3: Mẫu dữ liệu Mobile đẩy lên
 - Cập nhật tạo độ
 ```bash
 {
@@ -89,8 +99,7 @@ CREATE TABLE [dbo].[tblAccountTracking](
     "level": 0.45
   },
   "extras": {
-     "username":"hatv",
-     "name":"trần văn Hà"
+     
   }
 }
 ```
@@ -125,8 +134,7 @@ CREATE TABLE [dbo].[tblAccountTracking](
     "level": 0.46
   },
    "extras": {
-     "username":"hatv",
-     "name":"trần văn Hà"
+
   }
 }
 ```
