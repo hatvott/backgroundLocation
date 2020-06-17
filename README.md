@@ -66,6 +66,7 @@ CREATE TABLE [dbo].[tblAccountTracking](
 ```
 ### 2: Mẫu dữ liệu Mobile đẩy lên
 - Cập nhật tạo độ
+```bash
 {
   "is_moving": true,
   "uuid": "62336d76-7c4c-4712-b05b-0d20d635bbbd",
@@ -92,9 +93,9 @@ CREATE TABLE [dbo].[tblAccountTracking](
      "name":"trần văn Hà"
   }
 }
-
+```
 - Tắt GPS 
-
+```bash
 {
   "event": "providerchange",
   "provider": {
@@ -128,7 +129,7 @@ CREATE TABLE [dbo].[tblAccountTracking](
      "name":"trần văn Hà"
   }
 }
-
+```
 
 
 
