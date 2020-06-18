@@ -80,67 +80,11 @@ Có thể sử dụng 1 trong các cách sau, bổ sung vào trong param truyề
 ### 3: Mẫu dữ liệu Mobile đẩy lên
 - Cập nhật tạo độ
 ```bash
-{
-  "is_moving": true,
-  "uuid": "62336d76-7c4c-4712-b05b-0d20d635bbbd",
-  "timestamp": "2020-06-17T21:38:29.918Z",
-  "odometer": 0,
-  "coords": {
-    "latitude": 21.0298745,
-    "longitude": 105.7723229,
-    "accuracy": 11.6,
-    "speed": -1,
-    "heading": -1,
-    "altitude": -12.5
-  },
-  "activity": {
-    "type": "still",
-    "confidence": 100
-  },
-  "battery": {
-    "is_charging": true,
-    "level": 0.45
-  },
-  "extras": {
-       "username":"hatv"
-
-  }
-}
+{'location': [{'is_moving': True, 'uuid': '0f381da6-9918-426f-9317-a5544a7893f3', 'timestamp': '2020-06-18T00:59:03.999Z', 'odometer': 1572, 'coords': {'latitude': 21.0312872, 'longitude': 105.7744168, 'accuracy': 5.6, 'speed': 10.94, 'heading': 148.9, 'altitude': -8}, 'activity': {'type': 'in_vehicle', 'confidence': 100}, 'battery': {'is_charging': False, 'level': 0.99}, 'extras': {'username': 'hatv'}}, {'is_moving': True, 'uuid': '48b54136-0640-4d64-b163-29a3f47c3d4b', 'timestamp': '2020-06-18T00:59:52.999Z', 'odometer': 1782.2, 'coords': {'latitude': 21.0304542, 'longitude': 105.7762338, 'accuracy': 8, 'speed': 6.66, 'heading': 47.69, 'altitude': -17.9}, 'activity': {'type': 'in_vehicle', 'confidence': 100}, 'battery': {'is_charging': False, 'level': 0.99}, 'extras': {'username': 'hatv'}}, {'is_moving': True, 'uuid': '889aee67-42c8-4b9d-a52b-46083b5f809c', 'timestamp': '2020-06-18T01:00:17.999Z', 'odometer': 1922.5, 'coords': {'latitude': 21.0310395, 'longitude': 105.7774304, 'accuracy': 7.4, 'speed': 2.78, 'heading': 120.48, 'altitude': -9.8}, 'activity': {'type': 'in_vehicle', 'confidence': 100}, 'battery': {'is_charging': False, 'level': 0.99}, 'extras': {'username': 'hatv'}}, {'is_moving': True, 'uuid': '85ffb1da-eefc-42a8-96f1-6f49250d3018', 'timestamp': '2020-06-18T01:00:49.999Z', 'odometer': 2064.6, 'coords': {'latitude': 21.0304208, 'longitude': 105.7786284, 'accuracy': 11.2, 'speed': 5.7, 'heading': 96.42, 'altitude': -5.8}, 'activity': {'type': 'in_vehicle', 'confidence': 100}, 'battery': {'is_charging': False, 'level': 0.99}, 'extras': {'username': 'hatv'}}, {'is_moving': True, 'uuid': '28d86ea6-012e-4bba-85de-69128922f743', 'timestamp': '2020-06-18T01:01:35.999Z', 'odometer': 2206.8, 'coords': {'latitude': 21.0292433, 'longitude': 105.7791749, 'accuracy': 6, 'speed': 3.15, 'heading': 170.24, 'altitude': 2.6}, 'activity': {'type': 'in_vehicle', 'confidence': 100}, 'battery': {'is_charging': False, 'level': 0.98}, 'extras': {'username': 'hatv'}}], 'username': 'hatv'}
 ```
-- Tắt GPS 
+- Tắt/Mở GPS 
 ```bash
-{
-  "event": "providerchange",
-  "provider": {
-    "network": false,
-    "gps": false,
-    "enabled": false,
-    "status": 3
-  },
-  "is_moving": true,
-  "uuid": "28a999fb-3236-4349-9bcd-496bc54c0738",
-  "timestamp": "2020-06-17T21:38:33.749Z",
-  "odometer": 0,
-  "coords": {
-    "latitude": 21.0298736,
-    "longitude": 105.7723275,
-    "accuracy": 11.6,
-    "speed": 0,
-    "heading": 101.84,
-    "altitude": -12.5
-  },
-  "activity": {
-    "type": "still",
-    "confidence": 100
-  },
-  "battery": {
-    "is_charging": true,
-    "level": 0.46
-  },
-   "extras": {
-    "username":"hatv"
-  }
-}
+{'location': [{'is_moving': True, 'uuid': '69193073-f566-4047-872b-37eaad2faf37', 'timestamp': '2020-06-18T02:00:51.732Z', 'odometer': 2808.2, 'coords': {'latitude': 21.0324033, 'longitude': 105.7827517, 'accuracy': 15.6, 'speed': 0, 'heading': 202.62, 'altitude': 20.7}, 'activity': {'type': 'still', 'confidence': 100}, 'battery': {'is_charging': False, 'level': 0.91}, 'extras': {'username': 'hatv'}}, {'event': 'providerchange', 'provider': {'network': False, 'gps': False, 'enabled': False, 'status': 3}, 'is_moving': True, 'uuid': '870e1b23-5ea7-47eb-9b61-191c1cb2072f', 'timestamp': '2020-06-18T02:00:51.732Z', 'odometer': 2808.2, 'coords': {'latitude': 21.0324033, 'longitude': 105.7827517, 'accuracy': 15.6, 'speed': 0, 'heading': 202.62, 'altitude': 20.7}, 'activity': {'type': 'still', 'confidence': 100}, 'battery': {'is_charging': False, 'level': 0.91}, 'extras': {'username': 'hatv'}}, {'event': 'motionchange', 'is_moving': True, 'uuid': '7f1031c0-e22b-417a-a9a5-1fbb627449a7', 'timestamp': '2020-06-18T02:01:45.468Z', 'odometer': 2808.2, 'coords': {'latitude': 21.0324166, 'longitude': 105.7827612, 'accuracy': 15.5, 'speed': -1, 'heading': -1, 'altitude': 20.6}, 'activity': {'type': 'still', 'confidence': 100}, 'battery': {'is_charging': False, 'level': 0.9}, 'extras': {'username': 'hatv'}}, {'event': 'providerchange', 'provider': {'network': True, 'gps': True, 'enabled': True, 'status': 3}, 'is_moving': True, 'uuid': '3eb9bf4b-35ea-4b07-8b3a-c9b57c857ce6', 'timestamp': '2020-06-18T02:01:45.468Z', 'odometer': 2808.2, 'coords': {'latitude': 21.0324166, 'longitude': 105.7827612, 'accuracy': 15.5, 'speed': -1, 'heading': -1, 'altitude': 20.6}, 'activity': {'type': 'still', 'confidence': 100}, 'battery': {'is_charging': False, 'level': 0.9}, 'extras': {'username': 'hatv'}}], 'username': 'hatv'}
 ```
 
 
