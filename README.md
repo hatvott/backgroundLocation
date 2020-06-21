@@ -150,12 +150,47 @@ bổ sung vào trong param truyền lên khi config BGLocation
 PHẦN 3: Cấu hình nâng cao
 
 Thực hiện lệnh phía dưới để cập nhật cấu hình cho Bg Location
-
+```bash
 BackgroundGeolocation.setConfig({
   params: {
     "username": "hatv"
   }
   
 })
+```
+Cấu hình và đặt lịch giờ chạy
+```bash
+BackgroundGeolocation.ready({
+  .
+  .
+  .
+  schedule: [
+    "1 17:30-21:00",    // Sunday: 5:30pm-9:00pm
+    "2-6 9:00-17:00",   // Mon-Fri: 9:00am to 5:00pm
+    "2,4,6 20:00-00:00",// Mon, Web, Fri: 8pm to midnight (next day)
+    "7 10:00-19:00"     // Sat: 10am-7pm
+  ]
+}).then((state) => {
+  // Start the Scheduler
+  BackgroundGeolocation.startSchedule();
+});
 
+// Lang nghe su kien #onSchedule events:
+BackgroundGeolocation.onSchedule((state) => {
+  console.log("[onSchedule] - enabled? ", state.enabled);
+});
+
+
+// Sau nếu muốn cập nhật lịch thì gọi hàm  #setConfig 
+BackgroundGeolocation.setConfig({
+  schedule: [
+    "1-7 9:00-10:00",
+    "1-7 11:00-12:00",
+    "1-7 13:00-14:00",
+    "1-7 15:00-16:00",
+    "1-7 17:00-18:00",
+    "2,4,6 19:00-22:00"
+  ]
+});
+```
 
