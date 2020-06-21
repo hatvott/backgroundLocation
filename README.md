@@ -146,6 +146,16 @@ bổ sung vào trong param truyền lên khi config BGLocation
    "username":"hatv"
 }
 ```
+----------------------------------------------------------------------------------------------------------------------------
+PHẦN 3: Cấu hình nâng cao
 
+Thực hiện lệnh phía dưới để cập nhật cấu hình cho Bg Location
+
+BackgroundGeolocation.setConfig({
+  params: {
+    "username": "hatv"
+  }
+  
+})
 
 
