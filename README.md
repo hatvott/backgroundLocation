@@ -194,3 +194,18 @@ BackgroundGeolocation.setConfig({
 });
 ```
 
+Checking theo sự kiện:
+Bắt đầu tracking:
+```bash
+  BackgroundGeolocation.start();
+  BackgroundGeolocation.changePace(true);
+
+```
+Kết thúc tracking:
+```bash
+  BackgroundGeolocation.stop();
+  BackgroundGeolocation.changePace(false);
+
+```
+
+
