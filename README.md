@@ -235,9 +235,11 @@ BackgroundGeolocation.addGeofences([{
 ```
 
 - Khi user vào khu vực đó sẽ nhảy vào sự kiện.
+```bash
 BackgroundGeolocation.onGeofence(geofence => {
   console.log("[geofence] ", geofence.identifier, geofence.action);
 });
+```
 
 
 
