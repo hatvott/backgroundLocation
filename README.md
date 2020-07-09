@@ -209,3 +209,36 @@ Kết thúc tracking:
 ```
 
 
+Quản lý các vị trí quan trọng, nhận sự kiện cảnh bảo khi xuất hiện tại các điểm đó.
+- Core cung cấp 1 api trả lại danh sách các điểm đến cần giám sát
+```bash
+BackgroundGeolocation.addGeofences([{
+  identifier: "Home",
+  radius: 200,
+  latitude: 45.51921926,
+  longitude: -73.61678581,
+  notifyOnEntry: true,
+  notifyOnExit: false
+}, {
+  identifier: "Work",
+  radius: 200,
+  latitude: 45.61921927,
+  longitude: -73.71678582,
+  notifyOnEntry: true,
+  notifyOnExit: false
+
+}]).then((success) => {
+  console.log("[addGeofences] success");
+}).catch((error) => {
+  console.log("[addGeofences] FAILURE: ", error);
+});
+```
+
+- Khi user vào khu vực đó sẽ nhảy vào sự kiện.
+BackgroundGeolocation.onGeofence(geofence => {
+  console.log("[geofence] ", geofence.identifier, geofence.action);
+});
+
+
+
+
